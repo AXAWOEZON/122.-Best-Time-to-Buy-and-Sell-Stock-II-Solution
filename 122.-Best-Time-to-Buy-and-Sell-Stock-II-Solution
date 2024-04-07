@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n = prices.size();
+        if (n <= 1)
+            return 0;
+
+       
+
+        int max_Profit = 0;
+        int total_profit = 0;
+
+        for (int i = 1; i < n; i++) {
+            // Eng: Check if the stock price on the next day is higher than on the current one, Rus: Проверяем, если цена акций на следующий день выше, чем на текущий,
+             // Eng: which means the opportunity to earn a profit, and add this profit to the total amount. Rus: что означает возможность заработать прибыль, и добавляем эту прибыль к общей сумме.
+            if (prices[i] > prices[i - 1])
+              max_Profit += prices[i] - prices[i - 1]; 
+             
+        }
+
+        return max_Profit;
+    }
+};
